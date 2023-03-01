@@ -3,6 +3,7 @@ package com.muhammet.Java6Mono.repository.entity;
 public class Satis {
 
     /**
+     * Tüm Katmanlar -> Mapper dahil yazılacak.
      * Ne zaman
      * Kime
      * Ne kdar
@@ -13,6 +14,6 @@ public class Satis {
      * 1- Kime Ne satıldı Listesi
      * 2- A Kişisine neler satıldı listesi
      * 3- En çok satış adedi olan müşteri
-     * 4- En çok satılan 3 ürün 
+     * 4- En çok satılan 3 ürün
      */
 }
