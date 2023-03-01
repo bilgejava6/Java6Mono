@@ -1,0 +1,22 @@
+server:
+  port: 9090
+# DİKKAT
+# İlk vaşladığınız Ana parametre sola bitişik olmalı
+# Ana başlık ile alt başlığı ayırmak için bir TAB
+# boşluk kullanını ve çok dikkatli olun. Ayrıca
+# gireceğiniz değer :(iki nokta üst üste) den sonra
+# boşluk bırakılarak yazılmalıdır yoksa hataya neden
+# olur ve fark edemezsiniz.
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/Java6MonoDB
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
