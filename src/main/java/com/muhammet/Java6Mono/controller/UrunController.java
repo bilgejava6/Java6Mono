@@ -1,6 +1,8 @@
 package com.muhammet.Java6Mono.controller;
 
 import com.muhammet.Java6Mono.dto.request.UrunSaveRequestDto;
+import com.muhammet.Java6Mono.excepiton.EErrorType;
+import com.muhammet.Java6Mono.excepiton.SatisManagerException;
 import com.muhammet.Java6Mono.repository.entity.Urun;
 import com.muhammet.Java6Mono.service.UrunService;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +30,19 @@ public class UrunController {
     @GetMapping(GETALL)
     public ResponseEntity<List<Urun>> findAll(){
         return ResponseEntity.ok(urunService.findAll());
+    }
+
+    /**
+     * localhost:9090/api/v1/urun/getbyad?ad=muhammet
+     * @param ad
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/getbyad")
+    public ResponseEntity<String> getAllByAd(String ad) throws Exception {
+        if(ad == null)
+            throw new SatisManagerException(EErrorType.URUN_EKLEME,"Ürün eklemede ad bilgisi boş geldiği için hata oluştu");
+        return ResponseEntity.ok("Herşey yolunda");
     }
 
 }
