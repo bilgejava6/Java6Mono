@@ -1,5 +1,5 @@
 server:
-  port: 9090
+  port: 80
 # DİKKAT
 # İlk vaşladığınız Ana parametre sola bitişik olmalı
 # Ana başlık ile alt başlığı ayırmak için bir TAB
