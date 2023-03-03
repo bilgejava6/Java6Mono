@@ -4,6 +4,7 @@ import com.muhammet.Java6Mono.service.MusteriService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,4 +19,15 @@ public class LoginMvcController {
         ModelAndView modelAndView = new ModelAndView("login");
         return modelAndView;
     }
+    @PostMapping("/login")
+    public ModelAndView login(String user, String password){
+        System.out.println("user....: "+ user);
+        System.out.println("passw...: "+ password);
+        return new ModelAndView("login");
+    }
+    @GetMapping("/register")
+    public ModelAndView register(){
+        return new ModelAndView("register");
+    }
+
 }
