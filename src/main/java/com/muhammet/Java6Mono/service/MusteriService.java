@@ -1,6 +1,7 @@
 package com.muhammet.Java6Mono.service;
 import com.muhammet.Java6Mono.dto.request.MusteriSaveRequestDto;
 import com.muhammet.Java6Mono.dto.response.MusteriFindAllResponseDto;
+import com.muhammet.Java6Mono.excepiton.SatisManagerException;
 import com.muhammet.Java6Mono.mapper.IMusteriMapper;
 import com.muhammet.Java6Mono.repository.IMusteriRepository;
 import com.muhammet.Java6Mono.repository.entity.Musteri;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MusteriService extends ServiceManager<Musteri,Long> {
@@ -42,6 +44,12 @@ public class MusteriService extends ServiceManager<Musteri,Long> {
           result.add(IMusteriMapper.INSTANCE.formMusteri(x));
       });
       return result;
+  }
+
+  public Boolean doLogin(String username,String password){
+     Optional<Musteri> musteri = repository.findOptionalByUsernameAndPassword(username, password);
+     if(musteri.isEmpty()) return false;
+     return true;
   }
 
 }

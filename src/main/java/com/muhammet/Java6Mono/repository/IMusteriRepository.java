@@ -57,5 +57,6 @@ public interface IMusteriRepository extends JpaRepository<Musteri,Long> {
 
     List<Musteri> findAllByIdIn(List<Long> ids);
 
+    Optional<Musteri> findOptionalByUsernameAndPassword(String username,String password);
 
 }
