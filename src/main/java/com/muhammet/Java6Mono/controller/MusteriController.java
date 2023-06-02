@@ -7,9 +7,7 @@ import com.muhammet.Java6Mono.repository.entity.Musteri;
 import com.muhammet.Java6Mono.service.MusteriService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -51,8 +49,14 @@ public class MusteriController {
      * dönmesi ve bu varığın Json formatında dönmesi için kullanırız.
      * http://localhost:9090/musteri/save?ad=muhammet&adres=Ankara&telefon=05556669988
      */
-    @GetMapping(SAVE)
-    public ResponseEntity<String> save(MusteriSaveRequestDto dto){
+    @PostMapping(SAVE)
+    @CrossOrigin("*")
+    public ResponseEntity<String> save(@RequestBody MusteriSaveRequestDto dto){
+        try{
+            Thread.sleep(5000);
+        }catch (Exception e){
+
+        }
         musteriService.saveDto(dto);
         return ResponseEntity.ok("Ok.");
     }
@@ -62,11 +66,13 @@ public class MusteriController {
      * http://localhost:9090/musteri/getall
      */
     @GetMapping(GETALL)
+    @CrossOrigin("*")
     public ResponseEntity<List<MusteriFindAllResponseDto>> findAll(){
         return ResponseEntity.ok(musteriService.findAllResponseDtos());
     }
 
     @GetMapping(GETBYAD)
+    @CrossOrigin("*")
     public ResponseEntity<Musteri> findByAd(String ad){
         return ResponseEntity.ok(musteriService.findByAd(ad));
     }
